@@ -20,8 +20,10 @@ const Employees = () => {
         setTeam(e.target.value)
     }
 
-    const HandleEmployeeToggle = () => {
-        
+    const HandleEmployeeToggle = (e) => {
+        const transformedEmployee = employees.map(employee => (employee.id === e.currentTarget.id) 
+            ?(employee.team === team? {...employee, team: ""}: {...employee, team: team})
+            : employee)
     }
     return ( 
         <main>
