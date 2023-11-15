@@ -39,7 +39,7 @@ const data = [
         role: "Front-End Developer",
         gender: "male",
         team: "teamA",
-        id: 5
+        id: 6
     }
 ] 
 export default data

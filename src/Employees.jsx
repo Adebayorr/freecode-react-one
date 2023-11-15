@@ -14,22 +14,32 @@ import { useState } from "react";
 
 const Employees = () => {
     const [employees, setEmployees] = useState(data)
+    const [team, setTeam] = useState("Team C")
+
+    const HandleTeamSelection = e => {
+        setTeam(e.target.value)
+    }
+
+    const HandleEmployeeToggle = () => {
+        
+    }
     return ( 
         <main>
             <Container>
-                <Select placeholder="Select Team">
-                    <option value={"teamA"}>Team A</option>
-                    <option value={"teamB"}>Team B</option>
-                    <option value={"teamC"}>Team C</option>
+                <Select placeholder="Select Team" onChange={HandleTeamSelection} value={team}>
+                    <option value={"Team A"}>Team A</option>
+                    <option value={"Team B"}>Team B</option>
+                    <option value={"Team C"}>Team C</option>
                 </Select>
             </Container>
             <Grid 
             gridTemplateColumns={"1fr 1fr 1fr"}
-            maxW={"1000px"} margin={"0 auto"}>
+            maxW={"800px"} margin={"0 auto"}>
             {employees.map(employee => (
                 <GridItem 
                 className="employee-card" key={employee.id} 
-                margin={"10px"}>
+                margin={"10px"}
+                onClick={HandleEmployeeToggle}>
                     <Card>
                         <CardBody>
                             
