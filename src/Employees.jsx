@@ -8,21 +8,32 @@ Container,
 Stack, 
 Select } from "@chakra-ui/react";
 import male from "./assets/male.jpg"
-import female from "./assets/female.jpg"
-import data from "../data/data";
-import { useState } from "react";
+import female from "./assets/female.jpg" 
+import PropTypes from "prop-types"
+// import { useState } from "react";
+// import data from "../data/data";
 
-const Employees = () => {
-    const [employees, setEmployees] = useState(data)
-    const [team, setTeam] = useState("Team C")
+const Employees = (
+    {team, HandleEmployeeToggle,HandleTeamSelection, employees }
+    ) => {
 
-    const HandleTeamSelection = e => {
-        setTeam(e.target.value)
-    }
+    // const [employees, setEmployees] = useState(data)
+    // const [team, setTeam] = useState("Team C")
 
-    const HandleEmployeeToggle = () => {
-        
-    }
+    // const HandleTeamSelection = e => {
+    //     setTeam(e.target.value)
+    // }
+
+    // const HandleEmployeeToggle = (e) => {
+    //     const transformedEmployee = employees.map(employee => (employee.id === parseInt(e.currentTarget.id)) 
+    //         ?(employee.team === team? {...employee, team: ""}: {...employee, team: team})
+    //         : employee)
+
+    //     setEmployees(transformedEmployee)
+    //     // console.log(transformedEmployee)
+    // }
+
+    
     return ( 
         <main>
             <Container>
@@ -37,9 +48,10 @@ const Employees = () => {
             maxW={"800px"} margin={"0 auto"}>
             {employees.map(employee => (
                 <GridItem 
-                className="employee-card" key={employee.id} 
+                key={employee.id} 
                 margin={"10px"}
-                onClick={HandleEmployeeToggle}>
+                className={employee.team === team? "bordered employee-card": "employee-card"}
+                id={employee.id} onClick={HandleEmployeeToggle}>
                     <Card>
                         <CardBody>
                             
@@ -66,5 +78,13 @@ const Employees = () => {
         </main>
      );
 }
+
+Employees.propTypes = {
+    employees: PropTypes.object.isRequired,
+    HandleEmployeeToggle: PropTypes.any.isRequired,
+    HandleTeamSelection: PropTypes.func.isRequired,
+    team: PropTypes.object.isRequired,
+    
+  }
  
 export default Employees;
