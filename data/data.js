@@ -40,6 +40,27 @@ const data = [
         gender: "male",
         team: "Team A",
         id: 6
+    },
+    {
+        fullName: "Amy Ramsey ",
+        role: "Front-End Developer",
+        gender: "female",
+        team: "Team D",
+        id: 7
+    },
+    {
+        fullName: "Riri Hadid",
+        role: "Back-End Developer",
+        gender: "female",
+        team: "Team B",
+        id: 8
+    },
+    {
+        fullName: "John Dundee",
+        role: "Front-End Developer",
+        gender: "male",
+        team: "Team B",
+        id: 9
     }
 ] 
 export default data
