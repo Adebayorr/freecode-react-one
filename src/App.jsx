@@ -6,8 +6,8 @@ import { ChakraProvider } from "@chakra-ui/react"
 import { useState } from "react";
 
 function App() {
-  const [selectedTeam, setTeam] = useState("Team A")
-    const [employees, setEmployees] = useState(
+  const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem("Team")) || "Team A")
+    const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem("employeeList")) ||
          [
             {
                 fullName: "Ibrahim Adedokun",
@@ -87,7 +87,12 @@ function App() {
 
         setEmployees(transformedEmployees)
     }
-
+    useState(() => {
+        localStorage.setItem("employeesList", JSON.stringify(employees))
+    }, [employees])
+    useState(() => {
+        localStorage.setItem("Team", JSON.stringify(selectedTeam))
+    }, [selectedTeam])
   return (
     <ChakraProvider>
       <Header selectedTeam={selectedTeam} selectedTeamCount={employees.filter(employee => employee.team === selectedTeam).length}/>
