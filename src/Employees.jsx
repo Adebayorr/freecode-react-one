@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, Stack, SimpleGrid, Select } from "@chakra-ui/react";
+import { Card, CardBody, CardFooter, SimpleGrid, Select, Flex } from "@chakra-ui/react";
 import male from "./assets/male.jpg"
 import female from "./assets/female.jpg" 
 import PropTypes from "prop-types"
@@ -23,11 +23,11 @@ const Employees = ({handleEmployeeCardClick, handleTeamSelection, selectedTeam, 
                             <img src={employee.gender === "male" ? male : female} alt="" />
                         </CardBody>
                         <CardFooter>
-                            <Stack>
+                            <Flex flexDirection={"column"} alignItems={"flex-start"}>
                                 <h4>Name: { employee.fullName }</h4>
                                 <p>Role: { employee.role }</p>
                                 <p>Team { employee.team }</p>
-                            </Stack>
+                            </Flex>
                         </CardFooter>
                     </Card>
                 ))}

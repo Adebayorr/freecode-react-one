@@ -1,9 +1,9 @@
 import Employees from "./Employees"
-import Footer from "./Footer"
-import Header from "./Header"
 import { ChakraProvider } from "@chakra-ui/react"
 // import data from "../data/data";
 import { useState } from "react";
+import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements} from "react-router-dom";
+import RootLayer from "./RootLayer";
 
 function App() {
   const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem("Team")) || "Team A")
@@ -93,12 +93,22 @@ function App() {
     useState(() => {
         localStorage.setItem("Team", JSON.stringify(selectedTeam))
     }, [selectedTeam])
-  return (
+
+    const router = createBrowserRouter( 
+        createRoutesFromElements(
+            <Route path="/"  element={<RootLayer selectedTeam={selectedTeam} employees={employees}/>}>
+                <Route index element={ <Employees
+                employees={employees} handleEmployeeCardClick={handleEmployeeCardClick}
+                handleTeamSelection={handleTeamSelection} selectedTeam={selectedTeam} />}/>
+            </Route>
+        )
+     )
+  return ( 
     <ChakraProvider>
-      <Header selectedTeam={selectedTeam} selectedTeamCount={employees.filter(employee => employee.team === selectedTeam).length}/>
-      <Employees employees={employees} handleEmployeeCardClick={handleEmployeeCardClick} selectedTeam={selectedTeam} handleTeamSelection={handleTeamSelection}/>
-      <Footer />
+        <RouterProvider  router={router}/>
     </ChakraProvider>
+        
+    
   )
 }
 
