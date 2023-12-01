@@ -2,4 +2,15 @@ h1, h2, h3, h4, h5, p {
   text-align: center;
 }
 
+nav {
+  padding: 1rem 2.5rem;
+}
 
+nav a {
+  margin-right: 2rem;
+}
+
+a span {
+  color: bisque;
+  text-decoration: underline;
+}

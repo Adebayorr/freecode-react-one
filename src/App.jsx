@@ -4,6 +4,8 @@ import { ChakraProvider } from "@chakra-ui/react"
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements} from "react-router-dom";
 import RootLayer from "./RootLayer";
+import GroupedTeamMembers from "./GroupedTeamMembers";
+import NotFound from "./NotFound";
 
 function App() {
   const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem("Team")) || "Team A")
@@ -100,6 +102,8 @@ function App() {
                 <Route index element={ <Employees
                 employees={employees} handleEmployeeCardClick={handleEmployeeCardClick}
                 handleTeamSelection={handleTeamSelection} selectedTeam={selectedTeam} />}/>
+                <Route path="/GroupedTeamMembers" element={<GroupedTeamMembers />}/>
+                <Route path="*" element={<NotFound />} />
             </Route>
         )
      )
