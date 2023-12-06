@@ -102,7 +102,8 @@ function App() {
                 <Route index element={ <Employees
                 employees={employees} handleEmployeeCardClick={handleEmployeeCardClick}
                 handleTeamSelection={handleTeamSelection} selectedTeam={selectedTeam} />}/>
-                <Route path="/GroupedTeamMembers" element={<GroupedTeamMembers />}/>
+                <Route path="/GroupedTeamMembers" element={<GroupedTeamMembers employees={employees}
+                    selectedTeam={selectedTeam} setTeam={setTeam} />}/>
                 <Route path="*" element={<NotFound />} />
             </Route>
         )

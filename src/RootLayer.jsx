@@ -8,7 +8,7 @@ const RootLayer = ({selectedTeam, employees}) => {
     return ( 
         <>
         <Navbar />
-        <Header selectedTeam={selectedTeam} selectedTeamCount={employees.map(employee => employee.team === selectedTeam).length}/>
+        <Header selectedTeam={selectedTeam} selectedTeamCount={employees.filter(employee => employee.team === selectedTeam).length}/>
         <Outlet />
         <Footer />
         </>
@@ -19,5 +19,5 @@ export default RootLayer;
 
 RootLayer.propTypes = {
     selectedTeam: PropTypes.string.isRequired,
-    employees: PropTypes.number.isRequired
+    employees: PropTypes.array.isRequired
 }

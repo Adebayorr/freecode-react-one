@@ -14,3 +14,46 @@ a span {
   color: bisque;
   text-decoration: underline;
 }
+
+.notfound {
+  text-align: center;
+  margin: 10% auto;
+} 
+.notfound h1 {
+  font-size: 24px;
+}
+
+.notfound h1 span {
+  font-size: 78px;
+  padding-right: 1rem;
+}
+
+.employee-flex h4, .employee-flex p {
+  text-align: left;
+}
+
+.team_wrapper {
+  border: 2px solid #cb807d;
+  margin: 0.5rem auto;
+  width: 50%;
+  max-width: 800px;
+  background: #fe64a3;
+  cursor: pointer;
+}
+
+.team_wrapper h2 {
+  background-color: #f6839c;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.teamMember_info h4 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.teamMember_info p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 0.5rem 0;
+}

@@ -15,7 +15,7 @@ const Employees = ({handleEmployeeCardClick, handleTeamSelection, selectedTeam, 
                 <option value="Team C">Team C</option>
                 <option value="Team D">Team D</option>
             </Select>
-            <SimpleGrid width={"60%"} spacing={10} margin={"20px auto"} columns={3}>
+            <SimpleGrid width={"60%"} spacing={10} margin={"20px auto"} columns={3} minW={"800px"} >
             {employees.map(employee => (
                     <Card key={employee.id} onClick={handleEmployeeCardClick} id={employee.id} 
                     boxShadow={employee.team === selectedTeam?"#00000084 0px 1px 4px,#00000084 0 1px 4px": "#00000054 0 1px 1.5px"}>
@@ -23,7 +23,7 @@ const Employees = ({handleEmployeeCardClick, handleTeamSelection, selectedTeam, 
                             <img src={employee.gender === "male" ? male : female} alt="" />
                         </CardBody>
                         <CardFooter>
-                            <Flex flexDirection={"column"} alignItems={"flex-start"}>
+                            <Flex className="employee-flex" flexDirection={"column"} alignItems={"flex-start"}>
                                 <h4>Name: { employee.fullName }</h4>
                                 <p>Role: { employee.role }</p>
                                 <p>Team { employee.team }</p>
@@ -37,10 +37,10 @@ const Employees = ({handleEmployeeCardClick, handleTeamSelection, selectedTeam, 
 }
 
 Employees.propTypes = {
-    employees: PropTypes.object.isRequired,
+    employees: PropTypes.array.isRequired,
     handleEmployeeCardClick: PropTypes.func.isRequired,
     handleTeamSelection: PropTypes.string.isRequired,
-    selectedTeam: PropTypes.object.isRequired,
+    selectedTeam: PropTypes.string.isRequired,
     
   }
  
